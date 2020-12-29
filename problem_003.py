@@ -1,6 +1,6 @@
 original = 600851475143
 current = original
-factors = []
+prime_factors = []
 
 # Returns the lowest prime factor of argument
 def lowest_prime_factor(number):
@@ -8,15 +8,17 @@ def lowest_prime_factor(number):
         if number % i == 0:
             return i
 
-while True:
+# Returns product of factor-list given as argument
+def product(factors):
+    product = 1
+    for factor in factors:
+        product *= factor
+    return product
+
+# Loops until the product of the factors = original number
+while product(prime_factors) != original:
     prime_factor = lowest_prime_factor(current)
-    factors.append(prime_factor)
+    prime_factors.append(prime_factor)
     current = int(current / prime_factor)
 
-    # Breaks the loop if the product of the factors = original number
-    product = 1
-    for prime in factors:
-        product = product * prime
-    if product == original:
-        print(factors[-1])
-        break
+print(prime_factors[-1])
