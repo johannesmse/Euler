@@ -10,6 +10,6 @@ def smallestMultiple(divisor) :
                 break
             if i == divisor :
                 return answer
-        answer += 20
+        answer += divisor
 
 print(smallestMultiple(20))
